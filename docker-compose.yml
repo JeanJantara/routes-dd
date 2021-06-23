@@ -1,0 +1,22 @@
+server:
+    image: nginx:latest
+    ports:
+        - "8080:80"
+    volumes:
+        - ./:/routes-dd
+        - ./nginx/conf.d:/etc/nginx/conf.d/
+        - ./nginx/logs:/var/log/nginx/
+    links:
+        - php
+        
+php:
+    image: php:7-fpm
+    volumes:
+        - ./:/routes-dd
+
+composer:
+    image: composer:latest
+    restart: 'no'
+    command: install
+    volumes:
+    - ./:/app

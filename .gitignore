@@ -1,0 +1,4 @@
+nginx/logs/**
+vendor/**
+cache/**
+database/**

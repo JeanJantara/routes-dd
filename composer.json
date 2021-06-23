@@ -1,0 +1,23 @@
+{
+    "name": "jeanjantara/routes-dd",
+    "description": "Routes Project for DD.",
+    "authors": [
+        {
+            "name": "Jean Carlos Jantara",
+            "email": "jeanjantara@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "*",
+        "slim/psr7": "*",
+        "slim/twig-view": "^3.0",
+        "rakibtg/sleekdb": "*",
+        "php-di/slim-bridge": "*",
+        "respect/validation": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "RoutesDD\\": "src/RoutesDD/libs"
+        }
+    }
+}

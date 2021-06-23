@@ -1,0 +1,70 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="main">
+        <div class="container mt-4">
+            <h1 class="h1 mb-4">Routes DD</h1>
+            <div class="row d-flex justify-content-md-center">
+                <div class="col-12 mb-4">
+                    <form action="/city/new" method="POST" id="new-city-form">
+                        <div class="form-row row">
+                            <div class="col-lg-2 col-sm-12 mb-3">
+                                <input name="name" type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="col-lg-2 col-sm-12 mb-3">
+                                <input name="lat" type="text" class="form-control" placeholder="Lat">
+                            </div>
+                            <div class="col-lg-2 col-sm-12 mb-3">
+                                <input name="long" type="text" class="form-control" placeholder="Long">
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 mb-4">
+                    <form action="/shortest-path" method="POST" id="shortest-path-form">
+                        <div class="form-row row">
+                            <div class="col-lg-2 col-sm-12 mb-3">
+                                <input name="source" type="text" class="form-control" placeholder="Source">
+                            </div>
+                            <div class="col-lg-2 col-sm-12 mb-3">
+                                <input name="target" type="text" class="form-control" placeholder="Target">
+                            </div>
+                            <div class="col-lg-2 col-sm-12">
+                                <button type="submit" class="btn btn-primary">Calculate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 mb-4">
+                    <div id="loadspinner" class="spinner-border d-none" role="status"></div>
+                    <div id="messages">
+
+                    </div>
+                </div>
+                <div class="col-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Lat</th>
+                            <th scope="col">Long</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody-cities" >
+                            {% for city in cities %}
+                                <tr>
+                                    <td>{{ city.name }}</td>
+                                    <td>{{ city.lat }}</td>
+                                    <td>{{ city.long }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
